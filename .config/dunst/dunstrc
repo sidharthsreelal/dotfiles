@@ -14,7 +14,7 @@
     horizontal_padding = 12
     text_icon_padding = 0
     frame_width = 2
-    frame_color = "#b4befe"
+    frame_color = "#ffffff"
     gap_size = 6
     separator_color = frame
     sort = yes
@@ -33,19 +33,19 @@
     enable_recursive_icon_lookup = true
 
 [urgency_low]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
-    frame_color = "#313244"
+    background = "#121212"
+    foreground = "#cccccc"
+    frame_color = "#262626"
     timeout = 4
 
 [urgency_normal]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
-    frame_color = "#b4befe"
+    background = "#121212"
+    foreground = "#ffffff"
+    frame_color = "#ffffff"
     timeout = 6
 
 [urgency_critical]
-    background = "#1e1e2e"
-    foreground = "#f38ba8"
-    frame_color = "#f38ba8"
+    background = "#121212"
+    foreground = "#ffffff"
+    frame_color = "#ffffff"
     timeout = 0

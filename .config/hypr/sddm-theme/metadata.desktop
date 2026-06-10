@@ -1,0 +1,6 @@
+[SddmGreeterTheme]
+Name=Catppuccin Mocha
+Description=A sleek Catppuccin Mocha SDDM theme for Hyprland
+Author=Custom
+Type=sddm-theme
+License=MIT

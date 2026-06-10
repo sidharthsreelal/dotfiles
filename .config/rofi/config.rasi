@@ -1,0 +1,25 @@
+configuration {
+    modi: "drun,run,window";
+    font: "JetBrainsMono Nerd Font 11";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    display-drun: "";
+    display-run: "";
+    display-window: "";
+    drun-display-format: "{name}";
+    disable-history: false;
+    
+    /* Performance Optimizations */
+    lazy-grab: true;
+    parse-hosts: false;
+    parse-known-hosts: false;
+    sort: true;
+}
+
+/* 
+ * Active Theme Selection 
+ * To switch themes, uncomment the one you want and comment out the others:
+ */
+@theme "themes/polished.rasi"   // Option 1: Polished List with Tabs (Default Active)
+//@theme "themes/grid.rasi"       // Option 2: Application Grid with Tabs
+//@theme "themes/classic.rasi"    // Option 3: Original Classic Rofi Style

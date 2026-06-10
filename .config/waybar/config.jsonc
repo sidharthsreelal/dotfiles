@@ -3,46 +3,220 @@
   "position": "top",
   "height": 34,
   "spacing": 4,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "battery", "tray"],
+  "modules-left": ["hyprland/workspaces#apps"],
+  "modules-center": [
+    "group/workspaces-left",
+    "clock",
+    "group/workspaces-right"
+  ],
+  "modules-right": ["group/backlight", "pulseaudio", "bluetooth", "network", "custom/battery", "tray"],
 
-  "hyprland/workspaces": {
-    "format": "{id}",
-    "on-click": "activate",
-    "sort-by-number": true
+  "hyprland/workspaces#apps": {
+    "active-only": true,
+    "tooltip": false,
+    "format": "{windows}",
+    "format-window-separator": " ",
+    "window-rewrite-default": "",
+    "window-rewrite": {
+      "class<firefox>": "",
+      "class<kitty>": "",
+      "class<thunar>": "󰉋",
+      "class<pavucontrol>": "󰕾",
+      "class<blueman-manager>": "",
+      "class<^[aA].*>": "A",
+      "class<^[bB].*>": "B",
+      "class<^[cC].*>": "C",
+      "class<^[dD].*>": "D",
+      "class<^[eE].*>": "E",
+      "class<^[fF].*>": "F",
+      "class<^[gG].*>": "G",
+      "class<^[hH].*>": "H",
+      "class<^[iI].*>": "I",
+      "class<^[jJ].*>": "J",
+      "class<^[kK].*>": "K",
+      "class<^[lL].*>": "L",
+      "class<^[mM].*>": "M",
+      "class<^[nN].*>": "N",
+      "class<^[oO].*>": "O",
+      "class<^[pP].*>": "P",
+      "class<^[qQ].*>": "Q",
+      "class<^[rR].*>": "R",
+      "class<^[sS].*>": "S",
+      "class<^[tT].*>": "T",
+      "class<^[uU].*>": "U",
+      "class<^[vV].*>": "V",
+      "class<^[wW].*>": "W",
+      "class<^[xX].*>": "X",
+      "class<^[yY].*>": "Y",
+      "class<^[zZ].*>": "Z"
+    }
   },
 
-  "hyprland/window": {
-    "max-length": 60,
-    "separate-outputs": true
+  "group/workspaces-left": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/workspace-11",
+      "custom/workspace-9",
+      "custom/workspace-7",
+      "custom/workspace-5",
+      "custom/workspace-3",
+      "custom/workspace-1"
+    ]
+  },
+
+  "group/workspaces-right": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/workspace-2",
+      "custom/workspace-4",
+      "custom/workspace-6",
+      "custom/workspace-8",
+      "custom/workspace-10",
+      "custom/workspace-12"
+    ]
+  },
+
+  "custom/workspace-1": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 1 true",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 1",
+    "tooltip": false
+  },
+  "custom/workspace-3": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 3 true",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 3",
+    "tooltip": false
+  },
+  "custom/workspace-5": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 5 true",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 5",
+    "tooltip": false
+  },
+  "custom/workspace-7": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 7 false",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 7",
+    "tooltip": false
+  },
+  "custom/workspace-9": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 9 false",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 9",
+    "tooltip": false
+  },
+  "custom/workspace-11": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 11 false",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 11",
+    "tooltip": false
+  },
+
+  "custom/workspace-2": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 2 true",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 2",
+    "tooltip": false
+  },
+  "custom/workspace-4": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 4 true",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 4",
+    "tooltip": false
+  },
+  "custom/workspace-6": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 6 true",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 6",
+    "tooltip": false
+  },
+  "custom/workspace-8": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 8 false",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 8",
+    "tooltip": false
+  },
+  "custom/workspace-10": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 10 false",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 10",
+    "tooltip": false
+  },
+  "custom/workspace-12": {
+    "exec": "~/.config/waybar/scripts/workspace.sh 12 false",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 12",
+    "tooltip": false
   },
 
   "clock": {
     "format": "{:%H:%M}",
-    "format-alt": "{:%A, %B %d %Y}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "{:%A, %B %d %Y}"
   },
 
-  "battery": {
-    "states": { "warning": 30, "critical": 15 },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
+  "custom/battery": {
+    "exec": "~/.config/waybar/scripts/power-profile.sh",
+    "return-type": "json",
+    "interval": 30,
+    "signal": 8,
+    "format": "{}",
+    "on-click": "~/.config/waybar/scripts/power-profile.sh toggle"
+  },
+
+  "bluetooth": {
+    "format": "󰂯 {status}",
+    "format-connected": "󰂱 {device_alias}",
+    "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
+    "format-off": "󰂲 Off",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "kitty --class waybar-bluetooth -e bluetui"
   },
 
   "network": {
     "format-wifi": "󰤨 {signalStrength}%",
     "format-ethernet": "󰈀 {ifname}",
     "format-disconnected": "󰤭 Offline",
-    "tooltip-format": "{essid} — {ipaddr}"
+    "tooltip-format": "{essid} — {ipaddr}",
+    "on-click": "kitty --class waybar-network -e nmtui"
   },
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 Muted",
     "format-icons": { "default": ["󰕿","󰖀","󰕾"] },
-    "on-click": "pavucontrol"
+    "on-click": "kitty --class waybar-audio -e wiremix"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+
+  "group/backlight": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+      "click-to-reveal": true
+    },
+    "modules": [
+      "backlight",
+      "backlight/slider"
+    ]
+  },
+
+  "backlight/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight"
   },
 
   "tray": {

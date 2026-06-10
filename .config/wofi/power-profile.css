@@ -1,0 +1,50 @@
+/* Power Profile Picker - Catppuccin Mocha themed compact dropdown */
+
+window {
+  background-color: rgba(17, 17, 27, 0.97);  /* Crust with slight transparency */
+  border: 1.5px solid #b4befe;               /* Lavender border - matches waybar */
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+#input {
+  display: none; /* No search bar needed for power profile picker */
+}
+
+#inner-box {
+  background-color: transparent;
+  margin: 0;
+  padding: 4px 0;
+}
+
+#outer-box {
+  padding: 4px;
+}
+
+#scroll {
+  background: transparent;
+}
+
+#entry {
+  padding: 8px 18px;
+  border-radius: 6px;
+  color: #cdd6f4;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  transition: all 0.15s ease;
+  margin: 2px 4px;
+}
+
+#entry:selected {
+  background-color: rgba(180, 190, 254, 0.15);
+  color: #b4befe;
+}
+
+#entry:hover {
+  background-color: rgba(180, 190, 254, 0.08);
+}
+
+/* Highlight the current (active) profile which starts with ● */
+#entry:first-child {
+  color: #a6e3a1; /* Green for performance when active */
+}

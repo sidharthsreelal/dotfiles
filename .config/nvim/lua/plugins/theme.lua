@@ -1,0 +1,1 @@
+/home/sidsrlal/.config/omarchy/current/theme/neovim.lua

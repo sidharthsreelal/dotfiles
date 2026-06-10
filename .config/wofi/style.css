@@ -1,35 +1,73 @@
+/* Wofi - Elegant Modern Monochromatic Theme */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+}
+
 window {
-  background-color: #1e1e2e;
-  border: 2px solid #b4befe;
+  margin: 0px;
+  background-color: rgba(18, 18, 18, 0.90);
+  border: 2px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
 }
 
-#input {
-  background-color: #313244;
-  color: #cdd6f4;
+#outer-box {
+  margin: 12px;
   border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
-  margin: 8px;
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 14px;
-}
-
-#inner-box {
   background-color: transparent;
 }
 
-#outer-box {
-  padding: 8px;
+#input {
+  margin: 6px 6px 14px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 15px;
+}
+
+#input:focus {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+}
+
+#inner-box {
+  margin: 0px;
+  border: none;
+  background-color: transparent;
 }
 
 #entry {
-  padding: 6px 12px;
-  border-radius: 6px;
-  color: #cdd6f4;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
 }
 
 #entry:selected {
-  background-color: rgba(180, 190, 254, 0.15);
-  color: #b4befe;
+  background-color: rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
+#text {
+  margin-left: 12px;
+  border: none;
+  color: #cdd6f4;
+  font-size: 14px;
+}
+
+#entry:selected #text {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#img {
+  margin: 0px;
+  border: none;
 }

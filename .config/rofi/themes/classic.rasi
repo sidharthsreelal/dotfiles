@@ -1,0 +1,83 @@
+configuration {
+    sidebar-mode: false;
+}
+
+* {
+    bg-col:  rgba(18, 18, 18, 0.90);
+    border-col: rgba(255, 255, 255, 0.12);
+    selected-col: rgba(255, 255, 255, 0.12);
+    fg-col: #cdd6f4;
+    fg-col-active: #ffffff;
+    
+    width: 600;
+    height: 450;
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+window {
+    border: 2px;
+    border-color: @border-col;
+    border-radius: 12px;
+    padding: 12px;
+    anchor: center;
+    location: center;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 12px;
+}
+
+inputbar {
+    children: [ entry ];
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg-col-active;
+    placeholder: "Search...";
+    placeholder-color: rgba(255, 255, 255, 0.35);
+}
+
+listview {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    columns: 1;
+    spacing: 4px;
+    background-color: transparent;
+}
+
+element {
+    padding: 8px 12px;
+    background-color: transparent;
+    text-color: @fg-col;
+    border-radius: 8px;
+}
+
+element-icon {
+    size: 28px;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+    margin: 0px 0px 0px 12px;
+}
+
+element selected {
+    background-color: @selected-col;
+    text-color: @fg-col-active;
+}
+
+element-text selected {
+    font-weight: bold;
+}

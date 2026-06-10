@@ -1,0 +1,121 @@
+configuration {
+    sidebar-mode: true;
+}
+
+* {
+    bg-col:  rgba(18, 18, 18, 0.90);
+    border-col: rgba(255, 255, 255, 0.12);
+    selected-col: rgba(255, 255, 255, 0.12);
+    fg-col: #cdd6f4;
+    fg-col-active: #ffffff;
+    
+    width: 640;
+    height: 520; /* Slightly wider/taller to accommodate grid items comfortably */
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+window {
+    border: 2px;
+    border-color: @border-col;
+    border-radius: 12px;
+    padding: 16px;
+    anchor: center;
+    location: center;
+}
+
+mainbox {
+    children: [ inputbar, listview, mode-switcher ];
+    spacing: 16px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: rgba(255, 255, 255, 0.45);
+    margin: 0px 8px 0px 0px;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+entry {
+    expand: true;
+    background-color: transparent;
+    text-color: @fg-col-active;
+    placeholder: "Search...";
+    placeholder-color: rgba(255, 255, 255, 0.35);
+}
+
+listview {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    columns: 4; /* Grid columns */
+    lines: 3;   /* Grid rows */
+    spacing: 12px;
+    background-color: transparent;
+}
+
+element {
+    orientation: vertical; /* Align icon on top of text */
+    padding: 16px 8px;
+    background-color: transparent;
+    text-color: @fg-col;
+    border-radius: 8px;
+    border: 1px;
+    border-color: transparent;
+}
+
+element-icon {
+    size: 48px; /* Larger icons for grid mode */
+    horizontal-align: 0.5;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    margin: 8px 0px 0px 0px;
+}
+
+element selected {
+    background-color: @selected-col;
+    text-color: @fg-col-active;
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.25); /* Subtle border indicator */
+}
+
+element-text selected {
+    font-weight: bold;
+}
+
+/* Mode Switcher Tabs Styling */
+mode-switcher {
+    spacing: 8px;
+    background-color: transparent;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.04);
+    text-color: @fg-col;
+    border-radius: 8px;
+    horizontal-align: 0.5;
+}
+
+button selected {
+    background-color: rgba(255, 255, 255, 0.12);
+    text-color: @fg-col-active;
+    font-weight: bold;
+    border: 0px 0px 2px 0px;
+    border-color: #ffffff;
+}

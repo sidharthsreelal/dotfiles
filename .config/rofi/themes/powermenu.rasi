@@ -1,0 +1,67 @@
+* {
+    bg-col:  rgba(18, 18, 18, 0.90);
+    border-col: rgba(255, 255, 255, 0.12);
+    selected-col: rgba(255, 255, 255, 0.12);
+    fg-col: #cdd6f4;
+    fg-col-active: #ffffff;
+    
+    width: 280;
+    height: 260;
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+window {
+    border: 2px;
+    border-color: @border-col;
+    border-radius: 12px;
+    padding: 12px;
+    anchor: center;
+    location: center;
+}
+
+mainbox {
+    children: [ listview ];
+    spacing: 0px;
+}
+
+listview {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    columns: 1;
+    spacing: 4px;
+    background-color: transparent;
+}
+
+element {
+    padding: 10px 14px;
+    background-color: transparent;
+    text-color: @fg-col;
+    border-radius: 8px;
+    border: 0px 0px 0px 4px;
+    border-color: transparent; /* Keep size stable when selected */
+}
+
+element-icon {
+    size: 0px; /* Hide icons in power menu */
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+element selected {
+    background-color: @selected-col;
+    text-color: @fg-col-active;
+    border: 0px 0px 0px 4px;
+    border-color: #ffffff; /* Monochromatic accent highlight */
+}
+
+element-text selected {
+    font-weight: bold;
+}
