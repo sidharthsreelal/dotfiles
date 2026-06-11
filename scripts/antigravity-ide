@@ -1,0 +1,16 @@
+#!/bin/bash
+
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}
+
+# Run the pre-launch sync script to reconstruct past conversations
+if [[ -f /home/sidsrlal/.gemini/antigravity-ide/scratch/antigravity-sync.py ]]; then
+    /usr/bin/python3 /home/sidsrlal/.gemini/antigravity-ide/scratch/antigravity-sync.py
+fi
+
+# Allow users to override command-line options
+if [[ -f $XDG_CONFIG_HOME/antigravity-ide-flags.conf ]]; then
+    ANTIGRAVITY_IDE_USER_FLAGS="$(sed 's/#.*//' $XDG_CONFIG_HOME/antigravity-ide-flags.conf | tr '\n' ' ')"
+fi
+
+# Launch the actual IDE binary
+exec /opt/antigravity-ide/bin/antigravity-ide "$@" $ANTIGRAVITY_IDE_USER_FLAGS

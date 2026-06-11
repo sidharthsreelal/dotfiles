@@ -142,7 +142,14 @@ else
     echo "Warning: antigravity-sync.service not found in systemd units."
 fi
 
-# 8. Configure Wallpaper and Wallpaper Toggle
+# 8. Set up Antigravity IDE launcher wrapper
+if [[ -f "$SCRIPT_DIR/scripts/antigravity-ide" ]]; then
+    echo "--> Installing Antigravity IDE launcher wrapper to /usr/bin/antigravity-ide (requires sudo)..."
+    sudo cp "$SCRIPT_DIR/scripts/antigravity-ide" /usr/bin/antigravity-ide
+    sudo chmod +x /usr/bin/antigravity-ide
+fi
+
+# 9. Configure Wallpaper and Wallpaper Toggle
 echo "--> Configuring wallpaper files and wallpaper toggle..."
 # Ensure the wallpaper cycling script is executable
 if [[ -f "$HOME/.config/hypr/scripts/cycle_wallpapers.sh" ]]; then
