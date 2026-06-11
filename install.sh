@@ -142,8 +142,40 @@ else
     echo "Warning: antigravity-sync.service not found in systemd units."
 fi
 
+# 8. Configure Wallpaper and Wallpaper Toggle
+echo "--> Configuring wallpaper files and wallpaper toggle..."
+# Ensure the wallpaper cycling script is executable
+if [[ -f "$HOME/.config/hypr/scripts/cycle_wallpapers.sh" ]]; then
+    chmod +x "$HOME/.config/hypr/scripts/cycle_wallpapers.sh"
+    echo "Set executable permissions on cycle_wallpapers.sh"
+fi
+
+# Initialize or update the current wallpaper cache state file to avoid invalid paths
+mkdir -p "$HOME/.cache"
+CURRENT_WALL_STATE="$HOME/.cache/current_wallpaper"
+
+if [[ -f "$CURRENT_WALL_STATE" ]]; then
+    # Dynamically update home directory paths in state file if it was restored from backup
+    sed -i "s|/home/[a-zA-Z0-9._-]*|$HOME|g" "$CURRENT_WALL_STATE"
+    echo "Updated wallpaper state file with current home directory."
+else
+    # Initialize state file to the default first wallpaper
+    first_wall=$(find "$SCRIPT_DIR/.config/hypr/wallpapers" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | sort | head -n 1)
+    if [[ -n "$first_wall" ]]; then
+        rel_path="${first_wall#$SCRIPT_DIR/.config/hypr/wallpapers/}"
+        echo "$HOME/.config/hypr/wallpapers/$rel_path" > "$CURRENT_WALL_STATE"
+        echo "Default wallpaper initialized to: $rel_path"
+    fi
+fi
+
+# Dynamically update home paths in GTK bookmarks to match the current user
+if [[ -f "$SCRIPT_DIR/.config/gtk-3.0/bookmarks" ]]; then
+    echo "--> Updating home paths in GTK bookmarks to match the current user..."
+    sed -i "s|/home/[a-zA-Z0-9._-]*|$HOME|g" "$SCRIPT_DIR/.config/gtk-3.0/bookmarks"
+fi
+
 echo "===================================================="
 echo "          Installation Completed Successfully!       "
 echo "===================================================="
-echo "Configurations linked and custom background services enabled."
+echo "Configurations linked, wallpapers configured, and custom services enabled."
 echo "===================================================="
