@@ -4,7 +4,7 @@ After=default.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /home/sidsrlal/.gemini/antigravity-ide/scratch/antigravity-sync-daemon.py
+ExecStart=/usr/bin/python3 %h/.gemini/antigravity-ide/scratch/antigravity-sync-daemon.py
 Restart=always
 RestartSec=5
 StandardOutput=journal
