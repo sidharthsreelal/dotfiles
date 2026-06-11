@@ -74,6 +74,7 @@ kvantum-qt5
 lazydocker
 lazygit
 less
+libnotify
 libpulse
 libqalculate
 libreoffice-fresh
