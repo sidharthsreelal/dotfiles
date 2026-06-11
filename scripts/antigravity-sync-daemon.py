@@ -118,10 +118,11 @@ def main():
         sys.exit(1)
 
     watch_map = {}
+    home = os.path.expanduser("~")
     base_paths = [
-        "/home/sidsrlal/.gemini/antigravity-ide/conversations",
-        "/home/sidsrlal/.config/Antigravity IDE/User/globalStorage",
-        "/home/sidsrlal/.gemini/antigravity-ide/brain"
+        os.path.join(home, ".gemini/antigravity-ide/conversations"),
+        os.path.join(home, ".config/Antigravity IDE/User/globalStorage"),
+        os.path.join(home, ".gemini/antigravity-ide/brain")
     ]
 
     logging.info("Initializing watches...")
